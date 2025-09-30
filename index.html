@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QUIPUX - Administración de Estudiantes</title>
+    <link rel="stylesheet" href="../style/styles.css">
+</head>
+<body>
+    <div class="contenedor-principal">
+        <!-- Barra superior -->
+        <header class="barra-superior">
+            <div class="logo-contenedor">
+                <img src="../acces/img/logo-quipux.jpg" alt="Logo QUIPUX" class="logo">
+            </div>
+            <div class="info-usuario">
+                <span class="nombre-usuario">Johan Camilo Gómez Taborda</span>
+                <img src="../acces/img/camilo.png" alt="Foto de perfil" class="foto-perfil">
+            </div>
+        </header>
+
+        <div class="contenedor-contenido">
+            <!-- Menú lateral -->
+            <aside class="menu-lateral">
+                <nav>
+                    <ul class="lista-menu">
+                        <li class="item-menu activo">
+                            <a href="estudiante.html">Estudiantes</a>
+                        </li>
+                        <li class="item-menu">
+                            <a href="#">Grupos</a>
+                        </li>
+                        <li class="item-menu">
+                            <a href="#">Materias</a>
+                        </li>
+                        <li class="item-menu">
+                            <a href="#">Evaluaciones</a>
+                        </li>
+                        <li class="item-menu">
+                            <a href="#">Informes</a>
+                        </li>
+                    </ul>
+                </nav>
+            </aside>
+
+            <!-- Contenido principal -->
+            <main class="contenido-principal">
+                <div class="encabezado-seccion">
+                    <h1 class="titulo-seccion">Administración de estudiantes</h1>
+                    <button class="boton-primario" onclick="mostrarFormularioNuevo()">
+                        <span class="icono-mas">⊕</span> Nuevo registro
+                    </button>
+                </div>
+
+                
+                <div class="contenedor-filtros">
+                    <div class="grupo-filtro">
+                        <label for="filtro-grado">Grado</label>
+                        <select id="filtro-grado" class="campo-select">
+                            <option value="">Seleccionar</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                        </select>
+                    </div>
+                    <div class="grupo-filtro">
+                        <label for="filtro-grupo">Grupo</label>
+                        <select id="filtro-grupo" class="campo-select">
+                            <option value="">Seleccionar</option>
+                            <option value="A">A</option>
+                            <option value="B">B</option>
+                        </select>
+                    </div>
+                    <div class="grupo-filtro">
+                        <label for="filtro-identificacion">Identificación</label>
+                        <select id="filtro-identificacion" class="campo-select">
+                            <option value="TI">TI</option>
+                            <option value="CC">CC</option>
+                        </select>
+                    </div>
+                    <div class="grupo-filtro campo-numero">
+                        <input type="text" id="filtro-numero" class="campo-texto" placeholder="Número documento">
+                    </div>
+                    <div class="grupo-filtro campo-estudiante">
+                        <label for="filtro-estudiante">Estudiante</label>
+                        <select id="filtro-estudiante" class="campo-select">
+                            <option value="">Seleccionar</option>
+                        </select>
+                    </div>
+                    <button class="boton-primario" onclick="buscarEstudiantes()">Buscar</button>
+                    <button class="boton-secundario" onclick="limpiarFiltros()">Limpiar filtros</button>
+                </div>
+
+                
+                <div class="contenedor-resultados">
+                    <div class="encabezado-resultados">
+                        <h2 class="titulo-resultados">Resultados</h2>
+                        <div class="control-mostrar">
+                            <label for="cantidad-mostrar">Mostrar</label>
+                            <select id="cantidad-mostrar" class="campo-select-pequeno">
+                                <option value="4">4</option>
+                                <option value="10">10</option>
+                                <option value="25">25</option>
+                                <option value="50">50</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="contenedor-tabla">
+                        <table class="tabla-estudiantes">
+                            <thead>
+                                <tr>
+                                    <th>Código <span class="icono-orden">⇅</span></th>
+                                    <th>Identificación <span class="icono-orden">⇅</span></th>
+                                    <th>Estudiante <span class="icono-orden">⇅</span></th>
+                                    <th>Grado <span class="icono-orden">⇅</span></th>
+                                    <th>Grupo <span class="icono-orden">⇅</span></th>
+                                    <th>Estado <span class="icono-orden">⇅</span></th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody id="cuerpo-tabla">
+                                <tr>
+                                    <td>2022101</td>
+                                    <td>TI 1088123456</td>
+                                    <td>Camila Fernández Rojas</td>
+                                    <td>10</td>
+                                    <td>A</td>
+                                    <td>En curso</td>
+                                    <td class="columna-acciones">
+                                        <button class="boton-icono" onclick="verEstudiante('2022101')" title="Ver">👁</button>
+                                        <button class="boton-icono" onclick="mostrarModalEliminar('Camila Fernández Rojas')" title="Eliminar">🗑</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2022102</td>
+                                    <td>TI 1088123499</td>
+                                    <td>Juan Felipe Montoya Ríos</td>
+                                    <td>10</td>
+                                    <td>A</td>
+                                    <td>Aprobado</td>
+                                    <td class="columna-acciones">
+                                        <button class="boton-icono" onclick="verEstudiante('2022102')" title="Ver">👁</button>
+                                        <button class="boton-icono" onclick="mostrarModalEliminar('Juan Felipe Montoya Ríos')" title="Eliminar">🗑</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2022103</td>
+                                    <td>CC 1089456789</td>
+                                    <td>Luisa María Cruz Hernández</td>
+                                    <td>10</td>
+                                    <td>B</td>
+                                    <td>Reprobado</td>
+                                    <td class="columna-acciones">
+                                        <button class="boton-icono" onclick="verEstudiante('2022103')" title="Ver">👁</button>
+                                        <button class="boton-icono" onclick="mostrarModalEliminar('Luisa María Cruz Hernández')" title="Eliminar">🗑</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2022104</td>
+                                    <td>TI 1088120099</td>
+                                    <td>Ana María Bedoya López</td>
+                                    <td>10</td>
+                                    <td>B</td>
+                                    <td>En curso</td>
+                                    <td class="columna-acciones">
+                                        <button class="boton-icono" onclick="verEstudiante('2022104')" title="Ver">👁</button>
+                                        <button class="boton-icono" onclick="mostrarModalEliminar('Ana María Bedoya López')" title="Eliminar">🗑</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2022105</td>
+                                    <td>TI 1087013499</td>
+                                    <td>Santiago Sánchez Rivera</td>
+                                    <td>10</td>
+                                    <td>A</td>
+                                    <td>En curso</td>
+                                    <td class="columna-acciones">
+                                        <button class="boton-icono" onclick="verEstudiante('2022105')" title="Ver">👁</button>
+                                        <button class="boton-icono" onclick="mostrarModalEliminar('Santiago Sánchez Rivera')" title="Eliminar">🗑</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                   
+                    <div class="contenedor-paginacion">
+                        <span class="texto-paginacion">Mostrando 1 al 5 de 150 registros</span>
+                        <div class="controles-paginacion">
+                            <button class="boton-pagina">Primero</button>
+                            <button class="boton-pagina activo">1</button>
+                            <button class="boton-pagina">2</button>
+                            <button class="boton-pagina">3</button>
+                            <button class="boton-pagina">4</button>
+                            <button class="boton-pagina">5</button>
+                            <button class="boton-pagina">Último</button>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+  
+    <div id="modal-eliminar" class="modal oculto">
+        <div class="contenido-modal">
+            <div class="encabezado-modal">
+                <h3 class="titulo-modal">Eliminar <span id="nombre-estudiante-modal"></span></h3>
+                <button class="boton-cerrar" onclick="cerrarModal()">×</button>
+            </div>
+            <div class="cuerpo-modal">
+                <p>¿Estás seguro que deseas eliminar el registro de estudiante?</p>
+            </div>
+            <div class="pie-modal">
+                <button class="boton-secundario" onclick="cerrarModal()">No</button>
+                <button class="boton-eliminar" onclick="eliminarEstudiante()">Sí, eliminar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/script.js"></script>
+</body>
+</html>

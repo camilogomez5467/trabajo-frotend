@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QUIPUX - Información del Estudiante</title>
+    <link rel="stylesheet" href="../style/styles.css">
+</head>
+<body>
+    <div class="contenedor-principal">
+        <!-- Barra superior -->
+        <header class="barra-superior">
+            <div class="logo-contenedor">
+                <img src="../acces/img/logo-quipux.jpg" alt="Logo QUIPUX" class="logo">
+            </div>
+            <div class="info-usuario">
+                <span class="nombre-usuario">Carolina Fernández Echeverry</span>
+                <img src="[COLOCAR_URL_IMAGEN_PERFIL_AQUI]" alt="Foto de perfil" class="foto-perfil">
+            </div>
+        </header>
+
+        <div class="contenedor-contenido">
+            <!-- Menú lateral -->
+            <aside class="menu-lateral">
+                <nav>
+                    <ul class="lista-menu">
+                        <li class="item-menu activo">
+                            <a href="index.html">Estudiantes</a>
+                        </li>
+                        <li class="item-menu">
+                            <a href="#">Grupos</a>
+                        </li>
+                        <li class="item-menu">
+                            <a href="#">Materias</a>
+                        </li>
+                        <li class="item-menu">
+                            <a href="#">Evaluaciones</a>
+                        </li>
+                        <li class="item-menu">
+                            <a href="#">Informes</a>
+                        </li>
+                    </ul>
+                </nav>
+            </aside>
+
+            <!-- Contenido principal -->
+            <main class="contenido-principal">
+                <div class="ruta-navegacion">
+                    <a href="index.html" class="enlace-ruta">Administración de estudiantes</a>
+                    <span class="separador-ruta">/</span>
+                    <span class="ruta-actual">Estudiante</span>
+                </div>
+
+                <!-- Formulario de información del estudiante -->
+                <div class="contenedor-formulario">
+                    <h2 class="titulo-formulario">Información del estudiante</h2>
+
+                    <form id="formulario-estudiante">
+                        <div class="fila-formulario">
+                            <div class="grupo-campo pequeno">
+                                <label for="codigo">Código</label>
+                                <input type="text" id="codigo" class="campo-texto" value="2022101" readonly>
+                            </div>
+                            <div class="grupo-campo pequeno">
+                                <label for="tipo-identificacion">Identificación</label>
+                                <select id="tipo-identificacion" class="campo-select">
+                                    <option value="TI" selected>TI</option>
+                                    <option value="CC">CC</option>
+                                </select>
+                            </div>
+                            <div class="grupo-campo mediano">
+                                <label for="numero-documento">Número documento</label>
+                                <input type="text" id="numero-documento" class="campo-texto" placeholder="Ingrese el número">
+                            </div>
+                            <div class="grupo-campo mediano">
+                                <label for="primer-nombre">Primer nombre</label>
+                                <input type="text" id="primer-nombre" class="campo-texto" placeholder="Ingrese el primer nombre">
+                            </div>
+                            <div class="grupo-campo mediano">
+                                <label for="segundo-nombre">Segundo nombre (Opcional)</label>
+                                <input type="text" id="segundo-nombre" class="campo-texto" placeholder="Ingrese el segundo nombre">
+                            </div>
+                        </div>
+
+                        <div class="fila-formulario">
+                            <div class="grupo-campo mediano">
+                                <label for="primer-apellido">Primer apellido</label>
+                                <input type="text" id="primer-apellido" class="campo-texto" placeholder="Ingrese el primer apellido">
+                            </div>
+                            <div class="grupo-campo mediano">
+                                <label for="segundo-apellido">Segundo apellido</label>
+                                <input type="text" id="segundo-apellido" class="campo-texto" placeholder="Ingrese el segundo apellido">
+                            </div>
+                            <div class="grupo-campo pequeno">
+                                <label>Sexo</label>
+                                <div class="grupo-radio">
+                                    <label class="etiqueta-radio">
+                                        <input type="radio" name="sexo" value="F"> Femenino
+                                    </label>
+                                    <label class="etiqueta-radio">
+                                        <input type="radio" name="sexo" value="M"> Masculino
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="grupo-campo mediano">
+                                <label for="fecha-nacimiento">Fecha de nacimiento</label>
+                                <input type="date" id="fecha-nacimiento" class="campo-texto" placeholder="DD/MM/AAAA">
+                            </div>
+                        </div>
+
+                        <div class="fila-formulario">
+                            <div class="grupo-campo mediano">
+                                <label for="telefono-residencia">Teléfono residencia (Opcional)</label>
+                                <input type="tel" id="telefono-residencia" class="campo-texto" placeholder="Ingrese el número">
+                            </div>
+                            <div class="grupo-campo mediano">
+                                <label for="celular">Celular</label>
+                                <input type="tel" id="celular" class="campo-texto" placeholder="Ingrese el número">
+                            </div>
+                            <div class="grupo-campo grande">
+                                <label for="correo-electronico">Correo electrónico</label>
+                                <input type="email" id="correo-electronico" class="campo-texto" placeholder="Ej. prueba@correo.com">
+                            </div>
+                            <div class="grupo-campo mediano">
+                                <label for="ciudad-residencia">Ciudad de residencia</label>
+                                <select id="ciudad-residencia" class="campo-select">
+                                    <option value="">Seleccionar</option>
+                                    <option value="medellin">Medellín</option>
+                                    <option value="bogota">Bogotá</option>
+                                    <option value="cali">Cali</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="fila-formulario">
+                            <div class="grupo-campo extra-grande">
+                                <label for="direccion-residencia">Dirección de residencia</label>
+                                <input type="text" id="direccion-residencia" class="campo-texto" placeholder="Ej. Carrera 12 #45-78 Piso 2">
+                            </div>
+                            <div class="grupo-campo pequeno">
+                                <label for="grado">Grado</label>
+                                <select id="grado" class="campo-select">
+                                    <option value="">Seleccionar</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                </select>
+                            </div>
+                            <div class="grupo-campo pequeno">
+                                <label for="grupo">Grupo</label>
+                                <select id="grupo" class="campo-select">
+                                    <option value="">Seleccionar</option>
+                                    <option value="A">A</option>
+                                    <option value="B">B</option>
+                                    <option value="C">C</option>
+                                </select>
+                            </div>
+                        </div>
+                    </form>
+
+                    <!-- Tabla de cursos realizados -->
+                    <div class="seccion-cursos">
+                        <div class="encabezado-cursos">
+                            <h3 class="titulo-cursos">Cursos realizados</h3>
+                            <div class="control-mostrar">
+                                <label for="cantidad-mostrar-cursos">Mostrar</label>
+                                <select id="cantidad-mostrar-cursos" class="campo-select-pequeno">
+                                    <option value="4">4</option>
+                                    <option value="10">10</option>
+                                    <option value="25">25</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="contenedor-tabla">
+                            <table class="tabla-cursos">
+                                <thead>
+                                    <tr>
+                                        <th>Código <span class="icono-orden">⇅</span></th>
+                                        <th>Año <span class="icono-orden">⇅</span></th>
+                                        <th>Grado <span class="icono-orden">⇅</span></th>
+                                        <th>Grupo <span class="icono-orden">⇅</span></th>
+                                        <th>Estado <span class="icono-orden">⇅</span></th>
+                                        <th>Nota promedio <span class="icono-orden">⇅</span></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>2022101</td>
+                                        <td>2022</td>
+                                        <td>10</td>
+                                        <td>A</td>
+                                        <td>
+                                            <select class="campo-select-tabla">
+                                                <option value="en-curso" selected>En curso</option>
+                                                <option value="aprobado">Aprobado</option>
+                                                <option value="reprobado">Reprobado</option>
+                                            </select>
+                                        </td>
+                                        <td><input type="text" class="campo-texto-tabla" value=""></td>
+                                    </tr>
+                                    <tr>
+                                        <td>2021102</td>
+                                        <td>2021</td>
+                                        <td>9</td>
+                                        <td>C</td>
+                                        <td>Aprobado</td>
+                                        <td>4.0</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2020103</td>
+                                        <td>2020</td>
+                                        <td>9</td>
+                                        <td>B</td>
+                                        <td>Reprobado</td>
+                                        <td>2.4</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2019104</td>
+                                        <td>2019</td>
+                                        <td>8</td>
+                                        <td>B</td>
+                                        <td>Aprobado</td>
+                                        <td>3.6</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2018105</td>
+                                        <td>2018</td>
+                                        <td>7</td>
+                                        <td>A</td>
+                                        <td>Aprobado</td>
+                                        <td>3.8</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- Paginación de cursos -->
+                        <div class="contenedor-paginacion">
+                            <span class="texto-paginacion">Mostrando 1 al 5 de 10 registros</span>
+                            <div class="controles-paginacion">
+                                <button class="boton-pagina">Primero</button>
+                                <button class="boton-pagina activo">1</button>
+                                <button class="boton-pagina">2</button>
+                                <button class="boton-pagina">3</button>
+                                <button class="boton-pagina">4</button>
+                                <button class="boton-pagina">5</button>
+                                <button class="boton-pagina">Último</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Botones de acción -->
+                    <div class="contenedor-botones-formulario">
+                        <button type="button" class="boton-secundario" onclick="window.location.href='index.html'">Cancelar</button>
+                        <button type="submit" class="boton-primario" onclick="guardarEstudiante(event)">Guardar</button>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="../js/script.js"></script>
+</body>
+</html>
